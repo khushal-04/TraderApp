@@ -5,11 +5,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 function Tabs() {
   const navigate = useNavigate();
-  const location = useLocation(); // Hook to get the current path
+  const location = useLocation(); 
   const [alignment, setAlignment] = React.useState();
 
   useEffect(() => {
-    // Sync alignment state with the current path
     if (location.pathname === "/") {
       setAlignment("all");
     } else if (location.pathname === "/stocks") {

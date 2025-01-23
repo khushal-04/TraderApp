@@ -5,7 +5,7 @@ import { useTraderData } from '../Context/Context'
 const TraderMatrix = () => {
   const traders = useTraderData();
 
-  // Get top-ranked traders for each category
+  // top-ranked traders for each category
   const getTopTrader = (key) =>
     traders.slice().sort((a, b) => b[key] - a[key])[0];
 
@@ -68,33 +68,6 @@ const TraderMatrix = () => {
                 >
                   {matrix.trader?.[matrix.key] || 0}
                 </Typography>
-                
-                {/* <Grid2 container spacing={2} sx={{ mt: 2 }}>
-                  <Grid2 item xs={4}>
-                    <Typography variant="caption" color="textSecondary">
-                      Alerts
-                    </Typography>
-                    <Typography variant="subtitle1">
-                      {matrix.trader?.alerts || 0}
-                    </Typography>
-                  </Grid2>
-                  <Grid2 item xs={4}>
-                    <Typography variant="caption" color="textSecondary">
-                      Trades
-                    </Typography>
-                    <Typography variant="subtitle1">
-                      {matrix.trader?.trades || 0}
-                    </Typography>
-                  </Grid2>
-                  <Grid2 item xs={4}>
-                    <Typography variant="caption" color="textSecondary">
-                      Avg Gain
-                    </Typography>
-                    <Typography variant="subtitle1">
-                      {matrix.trader?.avgGain || 0}%
-                    </Typography>
-                  </Grid2>
-                </Grid2> */}
               </CardContent>
             </Card>
           </Grid2>

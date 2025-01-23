@@ -153,8 +153,6 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-
-          {/* Spacer */}
           <Box sx={{ flexGrow: 1 }} />
 
           {/* Desktop Menu */}

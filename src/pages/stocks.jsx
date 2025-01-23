@@ -1,12 +1,7 @@
 import {Box, Container, Grid2,Button,Paper} from "@mui/material"
 import PrimarySearchAppBar from "../components/appbar"
 import "../App.css"
-import TopCard from "../components/TopCard"
-import Metric from "../components/TraderMatrix"
-import Leaderboard from "../components/LeaderBoard"
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { TraderProvider } from '../Context/Context';
 import TraderLeaderboard from '../components/LeaderBoard';
 import TopThree from "../components/TopThree"
 import TraderMatrix from "../components/TraderMatrix"
@@ -34,10 +29,10 @@ export default function Stocks(){
   return (
     
     <Box sx={{
-            backgroundImage: `url(${bg})`, // Replace with your image path
+            backgroundImage: `url(${bg})`, 
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundAttachment: "fixed", // Optional: For parallax effect
+            backgroundAttachment: "fixed", 
             minHeight: "100vh",
           }} >
 

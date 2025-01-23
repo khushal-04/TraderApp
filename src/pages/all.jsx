@@ -34,10 +34,10 @@ export default function All() {
   return (
     <Box
       sx={{
-        backgroundImage: `url(${bg})`, // Replace with your image path
+        backgroundImage: `url(${bg})`, 
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundAttachment: "fixed", // Optional: For parallax effect
+        backgroundAttachment: "fixed", 
         minHeight: "100vh",
       }}
     >

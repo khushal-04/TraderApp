@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 
 
 export default function TopThree() {
-  const traders = useTraderData() || []; // Ensure it's always an array
+  const traders = useTraderData() || [];
   const location = useLocation();
 
   
