@@ -17,7 +17,7 @@ const TopCard = ({ trader }) => {
     <Card
       elevation={5}
       sx={{
-        width: 220,
+        width: 240,
         borderRadius: 3,
         boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.15)',
         background: 'linear-gradient(145deg, #ffffff, #f8f9fa)',

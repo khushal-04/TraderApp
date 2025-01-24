@@ -17,7 +17,6 @@ import {
   AccountCircle,
   Mail as MailIcon,
   Notifications as NotificationsIcon,
-  MoreVert as MoreIcon,
 } from '@mui/icons-material';
 
 // Custom Styled Components
@@ -137,14 +136,29 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        color="transparent"
-        sx={{ boxShadow: 'none' }}
-      >
+      <AppBar position="static" color="transparent" sx={{ boxShadow: 'none' }}>
         <Toolbar>
+          {/* Mobile Menu Icon */}
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              color="inherit"
+              onClick={handleMobileMenuOpen}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Box>
+
           {/* Search Bar */}
-          <Search>
+          <Search
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'flex', sm: 'block' },
+              marginLeft: { xs: 0, sm: 3 },
+              marginRight:{sm:90},
+              width: { xs: '100%', sm: 'auto' },
+            }}
+          >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -153,6 +167,7 @@ export default function PrimarySearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+
           <Box sx={{ flexGrow: 1 }} />
 
           {/* Desktop Menu */}

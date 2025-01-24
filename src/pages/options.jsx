@@ -9,6 +9,7 @@ import Tabs from "../components/Tabs"
 import { useTraderData } from '../Context/Context';
 import { useState,useEffect } from "react"
 import bg from "../assets/image.png"
+import bgmobile from "../assets/bgmobile.png"
 
 export default function Options(){
     const traders = useTraderData();
@@ -28,30 +29,44 @@ export default function Options(){
   
   return (
     
-    <Box sx={{
-            backgroundImage: `url(${bg})`, 
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed", 
-            minHeight: "100vh",
-          }} >
+    <Box
+  sx={{
+    backgroundImage: {
+      xs: `url(${bgmobile})`, 
+      sm: `url(${bg})`,     
+    },
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: {
+      xs: "scroll",  
+      sm: "fixed",   
+    },
+    minHeight: "100vh",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
 
-    <PrimarySearchAppBar/>
+      <PrimarySearchAppBar />
 
-    <Container sx={{justifyContent:"center" , display:"flex", mt:"10px"}}>
+      <Container
+        sx={{
+          justifyContent: "center",
+          display: "flex",
+          mt: "10px",
+        }}
+      >
+        <Tabs />
+      </Container>
 
-      <Tabs></Tabs> 
-      
-    </Container>
+      <TopThree />
 
-    <TopThree/>
+      <Box display="flex" justifyContent="center">
+        <TraderMatrix />
+      </Box>
 
-    <div style={{display:"flex",justifyContent:"center"}}>
-      <TraderMatrix></TraderMatrix>
-    </div>
-
-    <TraderLeaderboard traders={options} ></TraderLeaderboard>
-
+      <TraderLeaderboard traders={traders} />
     </Box>
       
   )

@@ -7,14 +7,13 @@ import TraderLeaderboard from "../components/LeaderBoard";
 import TopThree from "../components/TopThree";
 import TraderMatrix from "../components/TraderMatrix";
 import Tabs from "../components/Tabs";
-import bg from "../assets/image.png"
+import bg from "../assets/image.png";
+import bgmobile from "../assets/bgmobile.png"
 
 export default function All() {
   const traders = useTraderData();
   const [options, setOptions] = useState([]);
   const [stocks, Setstocks] = useState([]);
-
-  console.log("traders", traders);
 
   useEffect(() => {
     if (traders && traders.length > 0) {
@@ -24,8 +23,6 @@ export default function All() {
       const stocksTraders = traders.filter(
         (item) => item.trophies === "Stocks"
       );
-      console.log("Filtered options:", optionsTraders);
-      console.log("Filtered stocks:", stocksTraders);
       setOptions(optionsTraders);
       Setstocks(stocksTraders);
     }
@@ -33,14 +30,24 @@ export default function All() {
 
   return (
     <Box
-      sx={{
-        backgroundImage: `url(${bg})`, 
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed", 
-        minHeight: "100vh",
-      }}
-    >
+  sx={{
+    backgroundImage: {
+      xs: `url(${bgmobile})`, 
+      sm: `url(${bg})`,     
+    },
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: {
+      xs: "scroll",  
+      sm: "fixed",   
+    },
+    minHeight: "100vh",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+
       <PrimarySearchAppBar />
 
       <Container
@@ -55,9 +62,9 @@ export default function All() {
 
       <TopThree />
 
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <Box display="flex" justifyContent="center">
         <TraderMatrix />
-      </div>
+      </Box>
 
       <TraderLeaderboard traders={traders} />
     </Box>
